@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace _VS__CSharp__ESO_Launcher_Closer
+namespace ESO_Launcher_Closer
 {
     class SystrayRefresher
     {
