@@ -18,30 +18,19 @@ namespace ESO_Launcher_Closer
         static void Main(string[] args)
         {
             SetStartup();
-            bool shouldClose = false;
-            Process activeGame = null;
-
             while (true)
             {
-                Process[] processes = Process.GetProcesses();
-                foreach (Process p in processes)
+                Process[] games = Process.GetProcessesByName("eso64");
+                if (games.Length > 0)
                 {
-                    if (!string.IsNullOrEmpty(p.MainWindowTitle))
+                    Process[] launchers = Process.GetProcessesByName("Bethesda.net_Launcher");
+                    foreach(var launcher in launchers)
                     {
-                        if (!shouldClose && p.MainWindowTitle == "Elder Scrolls Online")
-                        {
-                            shouldClose = true;
-                            activeGame = p;
-                        }
-                        else if (shouldClose && p.MainWindowTitle == "Launcher")
-                        {
-                            shouldClose = false;
-                            p.Kill();
-                            p.Dispose();
-                            SystrayRefresher.RefreshTrayArea();
-                            if (activeGame != null) activeGame.WaitForExit();
-                        }
+                        launcher.Kill();
+                        launcher.Dispose();
+                        SystrayRefresher.RefreshTrayArea();
                     }
+                    games[0].WaitForExit();
                 }
                 System.Threading.Thread.Sleep(2000);
             }
