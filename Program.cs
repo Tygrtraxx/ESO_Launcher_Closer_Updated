@@ -21,7 +21,7 @@ namespace _VS__CSharp__ESO_Launcher_Closer
         static void Main(string[] args)
         {
             SetStartup();
-            bool shouldClose = true;
+            bool shouldClose = false;
             Process activeGame = null;
 
             while (true)
