@@ -1,7 +1,7 @@
 ﻿//============================================================================
 // Name        : ESO Launcher Closer Updated
 // Author(s)   : Draco9990 and rewritten by Tygrtraxx
-// Version     : 2
+// Version     : 2.0.0
 // Created on  : (2022?)
 // Rewritten on: (05/13/2024)
 // Last Update :
